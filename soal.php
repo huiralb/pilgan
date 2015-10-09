@@ -17,7 +17,6 @@ var waktu;
 var jalan = 0;
 var habis = 0;
 
-
 function init(){
     checkCookie();
     mulai();

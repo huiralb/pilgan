@@ -1,6 +1,6 @@
 <?php
 @session_start();
-include "+koneksi.php";
+include "../+koneksi.php";
 
 $id_tq = mysqli_real_escape_string($db, $_POST['id_tq']);
 
