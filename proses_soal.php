@@ -1,6 +1,6 @@
 <?php
 @session_start();
-include "../+koneksi.php";
+include "+koneksi.php";
 
 $id_tq = mysqli_real_escape_string($db, $_POST['id_tq']);
 
@@ -20,6 +20,14 @@ if (!empty($pilganda) AND !empty($esay)) {
 		$cek = mysqli_query($db, "SELECT * FROM tb_soal_pilgan WHERE id_pilgan = '$key'") or die ($db->error);
         while($c = mysqli_fetch_array($cek)){
             $jawaban = $c['kunci'];
+
+            /**
+             * ------------------------
+             * | id | jawaban | siswa |
+             * ------------------------
+             */
+            $query = "INSERT INTO tb_jawaban_pilgan VALUES(null, '$value', '$_SESSION[siswa]')";
+            mysqli($db, $query) or die($db->error);
         }
         if($value == $jawaban) {
             $benar++;
